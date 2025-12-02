@@ -23,6 +23,15 @@ bool addAircraft(char * name){
     if(aircraftCounter >= MAX_AIRCRAFT){
         return false; // cannot add more aircraft
     }
+
+    // check for duplicate aircrafts
+    for(int i = 0; i < aircraftCounter; i++){
+        if(strcmp(aircraftList[i], name) == 0){
+            return false; // duplicate found
+        }
+    }
+
+
     // we copy the name into our storage and increment the counter
     strcpy(aircraftList[aircraftCounter], name);
     aircraftCounter++; // increment the count of aircraft
